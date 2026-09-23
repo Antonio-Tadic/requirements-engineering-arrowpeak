@@ -1,75 +1,79 @@
 # Digitales Vereins- und Buchungssystem „ArrowPeak“
-### Case Study: Angewandtes Requirements Engineering & Product Ownership nach IREB-Standards
+### End-to-End Case Study: Requirements Engineering (IREB) & Software Quality Assurance (ISTQB / ISO 29119-3)
 
-Dieses Projekt demonstriert die strukturierte Systemkontextabgrenzung, Anforderungsanalyse, Backlog-Strukturierung und das Change Management zur Ablöse gewachsener, manueller Prozesse (Papierlisten, Inselkalender) durch eine cloudbasierte Plattform für einen Sportverein mit über 400 Mitgliedern und zwei Standorten.
+Dieses Repository demonstriert einen durchgängigen Software-Lifecycle: Von der Systemabgrenzung und Anforderungserhebung nach IREB-Standards bis hin zum methodischen Software-Testing und der fundierten Vendor-Evaluierung (easyVerein) nach ISTQB- und ISO/IEC/IEEE 29119-3-Standards.
 
 ---
 
-## Projekt-Steckbrief & Rolle
+## Projekt-Steckbrief & Rollen
 
-* **Rolle:** Product Owner / Requirements Engineer (Lead User Story Review & Change Decisions)
-* **Standard:** IREB (CPRE Foundation Level)
-* **Artefakte:** Systemkontextdiagramm, Ermittlungsplan (Kano-Modell), Attributierungsschema, Product Backlog (20+ User Stories inkl. Epics & Akzeptanzkriterien), Change-Request-Prozess
+* **Rollen:** Product Owner / Test Analyst (Requirements Engineering, Testfalldesign, Testdurchführung)
+* **Angewandte Standards:** 
+  * Requirements Engineering: **IREB CPRE** (Satzschablone nach Mike Cohn, Kano-Modell)
+  * Software Testing: **ISTQB CTFL** & **ISO/IEC/IEEE 29119-3** (Äquivalenzklassen, Grenzwertanalyse, IDOR-Security)
+  * Qualitätskriterien: **ISO/IEC 25010**
+* **Zentrale Artefakte:** Systemkontextdiagramm, Product Backlog, Testlandkarte (Risikoanalyse), Testfallkatalog (27 Testfälle inkl. Review-Protokoll), Testprotokoll & Evaluierungsbericht
 
 ---
 
 ## Ausgangsszenario & Business Problem
 
-Der fiktive Bogensportverein „ArrowPeak“ verwaltet über 400 aktive Mitglieder sowie zwei Standorte (Halle und Außengelände). Bislang liefen Platzreservierungen, Kursbuchungen und Turnierabrechnungen über fehleranfällige manuelle Wege (Papierlisten, dezentrale Kalender, handschriftliche Vermerke). 
+Der Bogensportverein „ArrowPeak“ verwaltet über 400 aktive Mitglieder und zwei Standorte (Halle Klagenfurt, Außengelände Velden). Bislang dominierten fehleranfällige manuelle Prozesse (Papierlisten, Inselkalender). 
 
-Ziel dieser Case Study war die vollständige fachliche Spezifikation einer modularen Plattform, um:
-* Schießzeiten und Kurse ohne Doppelbuchungen in Echtzeit bereitzustellen,
-* gesetzliche Auflagen (DSGVO für Minderjährige, RKSV-Belegpflicht) strukturiert einzubinden,
-* Schnittstellen zu externen Verbandsplattformen (Ergebnisübermittlung) und Bezahldiensten vorzubereiten.
+Ziel der Case Study war:
+1. Die vollständige funktionale und nicht-funktionale Spezifikation einer modularen Plattform.
+2. Die systematische Eignungsprüfung einer marktführenden Standard-Softwarelösung (easyVerein) gegen die definierten Kernanforderungen.
 
 ---
 
-## 1. Systemkontext & Abgrenzung (Scope)
+## 1. Systemkontext & Abgrenzung (IREB)
 
-Um Scope-Creep zu verhindern, wurden die Systemgrenzen, externe Schnittstellen sowie bewusst ausgeschlossene Aspekte frühzeitig definiert.
+Zur Vermeidung von Scope-Creep wurden Schnittstellen, Akteure und Nicht-Ziele präzise abgegrenzt:
 
 ![Systemkontext ArrowPeak](kontextdiagramm.png)
 
-* **Relevante Akteure:** Mitglieder, Trainer, Vorstand, Nicht-Mitglieder/Gäste, Erziehungsberechtigte
-* **Schnittstellen:** Österr. Bogensportverband (Turnier-API), Benachrichtigungsdienst (E-Mail/SMS), Kassenlösung (RKSV), EU-Cloud-Infrastruktur
-* **Bewusst ausgeschlossen:** Lokale Kassenhardware (im aktuellen Software-Scope nicht enthalten), Offline-Modus (reine Online-Cloudlösung), Medien-/Pressearbeit
+* **Schnittstellen:** Österr. Bogensportverband (Turnier-API), Benachrichtigungsdienst, Kassenlösung (RKSV), EU-Cloud-Infrastruktur.
+* **Bewusst ausgeschlossen:** Lokale POS-Kassenhardware, Offline-Modus, Presse-/Medienverwaltung.
 
 ---
 
-## 2. Ermittlungsstrategie nach dem Kano-Modell
+## 2. Product Backlog (Auszug)
 
-Die Anforderungen wurden über fünf kombinierte Ermittlungstechniken erhoben, um Basisfaktoren abzusichern und Begeisterungsfaktoren strukturiert zu identifizieren:
+Das Backlog (siehe `ArrowPeak_UserStories.xlsx`) umfasst 5 Epics und über 20 User Stories.
 
-| Technik | Kano-Zuordnung | Adressierte Quellen | Ziel / Mehrwert |
-| :--- | :--- | :--- | :--- |
-| **Dokumentenanalyse** | Basis- & Leistungsfaktoren | Papierlisten, DSGVO, Statuten | Aufdecken impliziter Geschäftsregeln vor Stakeholderkontakt |
-| **Interviews** | Leistungsfaktoren | Vorstand, Trainer, Mitglieder | Detaillierte Erhebung von Prozessen und Erwartungen |
-| **Feldbeobachtung** | Basisfaktoren | Vor-Ort-Abläufe (2 Standorte) | Identifikation informeller Workarounds bei Platzbelegungen |
-| **Online-Fragebogen** | Leistungsfaktoren | Gesamte Mitgliederbasis (400) | Statistische Priorisierung von Kernfeatures |
-| **Kreativworkshop** | Begeisterungsfaktoren | Vorstand, Trainer, Mitglieder | Ideenfindung (Gamification, automatisierte Benachrichtigungen) |
+* **Beispiel Buchung (US-05):** *„Als Mitglied möchte ich verfügbare Schießzeiten in Echtzeit sehen, damit ich einen freien Bahnplatz ohne Doppelbuchung reservieren kann.“*
+* **Beispiel Minderjährigenschutz (US-03):** *„Als Vereinsvorstand möchte ich minderjährige Mitglieder kennzeichnen, damit sichergestellt ist, dass vor deren Buchung eine Einwilligung der Erziehungsberechtigten vorliegt.“*
 
 ---
 
-## 3. Product Backlog (Auszug User Stories)
+## 3. Testplanung & Produktrisikoanalyse (ISO 25010)
 
-Das vollständige Backlog (siehe `ArrowPeak_UserStories.xlsx`) umfasst 5 Epics und über 20 User Stories, formuliert nach der Mike-Cohn-Satzschablone mit messbaren Akzeptanzkriterien.
+Vor der Testdurchführung wurden Kernrisiken und Qualitätsmerkmale nach ISO 25010 in einer Testlandkarte priorisiert:
 
-### Beispiel: Buchungssystem (Epic E2)
+![Testlandkarte ArrowPeak](testlandkarte.png)
 
-* **Story:** `US-05` | **Stabilität:** Vorläufig | **Status:** Entwurf
-* **Formulierung:** *„Als Mitglied möchte ich verfügbare Schießzeiten in Echtzeit sehen, damit ich einen freien Bahnplatz ohne Doppelbuchung reservieren kann.“*
-* **Akzeptanzkriterien:**
-  1. Gebuchte Plätze werden innerhalb von maximal 2 Sekunden systemweit für andere Nutzer als belegt markiert.
-  2. Bei zeitgleicher Reservierungsanfrage erhält die zuerst eingegangene Transaktion den Platz; der zweite Nutzer erhält eine Fehlermeldung mit Alternativvorschlägen.
+* **Kritische Produktrisiken:** Datenschutzverletzung (DSGVO Art. 7), Verstöße gegen das Minderjährigenschutzgesetz, Datenverlust bei Abrechnungen und Doppelbuchungen in Stoßzeiten.
 
 ---
 
-## 4. Change-Enablement-Prozess
+## 4. Software-Evaluierung & Testdurchführung (easyVerein)
 
-Zur Beherrschung von gesetzlichen Vorgaben (DSGVO, RKSV) und Stakeholder-Wünschen greift ein formaler 5-Stufen-Prozess:
+Anhand des Testfallkatalogs (`ArrowPeak_Testfallkatalog_v4.xlsx` – 27 Testfälle) wurde die Standard-SaaS-Lösung *easyVerein* im praktischen Einsatz evaluiert.
 
-1. **Erfassung:** Dokumentation von Ursache, Auslöser und betroffenen Anforderungen.
-2. **Folgenabschätzung:** Analyse über Traceability-Matrizen und Kontext-IDs.
-3. **Entscheidung:** Priorisierung und Freigabe durch den Product Owner (Vorstand).
-4. **Umsetzung & Versionierung:** Inkrementierung von Dokumenten und Code.
-5. **Verifizierung:** Regressionstests und Abnahme gegen aktualisierte Akzeptanzkriterien.
+### Testergebnis-Übersicht:
+* **Gesamt-Testfälle:** 27 (100 %)
+* **Bestanden:** 8 (30 %) – z. B. Basis-Buchungskern, Rechnungs-Pflichtfelder (§11 UStG), IDOR-Zugriffsschutz
+* **Fehlgeschlagen:** 4 (15 %) – z. B. fehlende Stornogebührenlogik (<24h), Stornierbarkeit abgelaufener Buchungen
+* **Nicht testbar (Funktion fehlt in Standardsoftware):** 15 (55 %)
+
+### Kritische Abweichungen (Auszug ISTQB-Fehlerliste):
+* **F-01 (Klasse 1 – Kritisch):** Minderjährigen-Flag und automatisierte Buchungsblockade fehlen systemseitig vollständig (Verstoß gegen gesetzliche Vorgaben für Jugendkurse).
+* **F-04 (Klasse 2 – Hoch / DSGVO Art. 7):** Keine einsehbare Einwilligungshistorie und kein integrierter DSGVO-Widerrufsworkflow für Mitglieder.
+
+---
+
+## 5. Management Summary & Freigabeempfehlung
+
+> **Entscheidung: easyVerein wird für den Produktivbetrieb NICHT FREIGEGEBEN.**
+
+Obwohl die Basisfunktionalitäten für allgemeine Vereine vorhanden sind, scheitert die Standardlösung an den regulatorischen K.O.-Kriterien (Minderjährigenschutz und DSGVO) sowie der fehlenden Verbands-API. Als Product Owner / Test Lead wurde empfohlen, keine kostspieligen Custom-Workarounds aufzusetzen, sondern alternative SaaS-Lösungen (z. B. clubdesk, verein.cloud) gezielt anhand der K.O.-Kriterien vorzufiltern.
