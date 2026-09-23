@@ -41,7 +41,7 @@ Die Anforderungen wurden über fünf kombinierte Ermittlungstechniken erhoben, u
 
 ## 3. Product Backlog (Auszug User Stories)
 
-Das vollständige Backlog (siehe `ArrowPeak_UserStories_NEU.xlsx`) umfasst 5 Epics und über 20 User Stories, formuliert nach der Mike-Cohn-Satzschablone mit messbaren Akzeptanzkriterien.
+Das vollständige Backlog (siehe `ArrowPeak_UserStories.xlsx`) umfasst 5 Epics und über 20 User Stories, formuliert nach der Mike-Cohn-Satzschablone mit messbaren Akzeptanzkriterien.
 
 ### Beispiel: Buchungssystem (Epic E2)
 
