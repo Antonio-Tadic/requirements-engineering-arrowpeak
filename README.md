@@ -5,7 +5,7 @@ Dieses Projekt demonstriert die strukturierte Systemkontextabgrenzung, Anforderu
 
 ---
 
-## 📌 Projekt-Steckbrief & Rolle
+## Projekt-Steckbrief & Rolle
 
 * **Rolle:** Product Owner / Requirements Engineer (Lead User Story Review & Change Decisions)
 * **Standard:** IREB (CPRE Foundation Level)
@@ -56,8 +56,6 @@ Das vollständige Backlog (siehe `ArrowPeak_UserStories_NEU.xlsx`) umfasst 5 Epi
 ## 4. Change-Enablement-Prozess
 
 Zur Beherrschung von gesetzlichen Vorgaben (DSGVO, RKSV) und Stakeholder-Wünschen greift ein formaler 5-Stufen-Prozess:
-
-![5-Stufen Change Request Prozess](change-prozess.png)
 
 1. **Erfassung:** Dokumentation von Ursache, Auslöser und betroffenen Anforderungen.
 2. **Folgenabschätzung:** Analyse über Traceability-Matrizen und Kontext-IDs.
