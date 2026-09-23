@@ -13,6 +13,17 @@ Dieses Projekt demonstriert die strukturierte Systemkontextabgrenzung, Anforderu
 
 ---
 
+## Ausgangsszenario & Business Problem
+
+Der fiktive Bogensportverein „ArrowPeak“ verwaltet über 400 aktive Mitglieder sowie zwei Standorte (Halle und Außengelände). Bislang liefen Platzreservierungen, Kursbuchungen und Turnierabrechnungen über fehleranfällige manuelle Wege (Papierlisten, dezentrale Kalender, handschriftliche Vermerke). 
+
+Ziel dieser Case Study war die vollständige fachliche Spezifikation einer modularen Plattform, um:
+* Schießzeiten und Kurse ohne Doppelbuchungen in Echtzeit bereitzustellen,
+* gesetzliche Auflagen (DSGVO für Minderjährige, RKSV-Belegpflicht) strukturiert einzubinden,
+* Schnittstellen zu externen Verbandsplattformen (Ergebnisübermittlung) und Bezahldiensten vorzubereiten.
+
+---
+
 ## 1. Systemkontext & Abgrenzung (Scope)
 
 Um Scope-Creep zu verhindern, wurden die Systemgrenzen, externe Schnittstellen sowie bewusst ausgeschlossene Aspekte frühzeitig definiert.
